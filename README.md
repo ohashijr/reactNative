@@ -12,6 +12,6 @@ $ cd my-app/
 $ npm start
 ```
 
-1. Baixar no smartphone a app "Expo".
+2. Baixar no smartphone a app "Expo".
 
-1. Fazer a leitura pelo app "Expo" do QR code gerado.
+3. Fazer a leitura pelo app "Expo" do QR code gerado.
