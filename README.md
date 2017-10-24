@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-## Colocando a 1ª imagem:
+## Adicionando uma imagem:
 
 1. É necessário fazer o import do componente "Image" do react-native.
 2. Na utilização do componente Image, por se tratar de uma imagem que vem de uma
@@ -119,7 +119,7 @@ não será renderizada.
 3. Neste exemplo, a image carregada está fixa a nivel de código "IMAGES[0]", a
 imagem do primeiro index do array de imagens (IMAGES) definido previamente.
 
-```jxs
+```js
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
@@ -143,3 +143,208 @@ const styles = StyleSheet.create({
   ...
 });
 ```
+## Ajustando o style:
+Colocamos mais duas Views com "flex: 1", uma em cima e outra em baixo da Image,
+e essa possui "flex: 2". O que significa que ela ocupa o mesmo espaço que as duas
+views somadas.
+
+```js
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, Image } from 'react-native';
+
+const IMAGES = [
+  ...
+];
+
+export default class App extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={{ flex: 1 }} />
+        <Image source={{uri: IMAGES[0].uri}} style={styles.image} />
+        <View style={{ flex: 1 }} />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  image: {
+    flex: 2,
+    width: 320,
+  },
+});
+```
+
+## Adicionando label
+
+```js
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, Image } from 'react-native';
+
+
+const IMAGES = [
+  ...
+];
+
+export default class App extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={{ flex: 1 }} />
+        <Image source={{uri: IMAGES[0].uri}} style={styles.image} >
+          <Text>{IMAGES[0].label}</Text>
+        </Image>
+        <View style={{ flex: 1 }} />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  ...
+});
+
+```
+
+## Ajustando estilo do Label da Imagem
+
+```js
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, Image } from 'react-native';
+
+
+const IMAGES = [
+  ...
+];
+
+export default class App extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={{ flex: 1 }} />
+        <Image source={{uri: IMAGES[0].uri}} style={styles.image} >
+          <Text style={styles.imageLabel}>{IMAGES[0].label}</Text>
+        </Image>
+        <View style={{ flex: 1 }} />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  image: {
+    flex: 2,
+    width: 320,
+    justifyContent: 'flex-end',
+  },
+  imageLabel: {
+    textAlign: 'center',
+    backgroundColor: 'rgba(100, 100, 100, 0.5)',
+    color: 'white',
+    width: 320
+  },
+});
+```
+
+## Adicionando ação de click
+
+```js
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
+
+
+const IMAGES = [
+  ...
+];
+
+export default class App extends Component {
+
+  nextImage(event){
+    console.log("next image");
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={{ flex: 1 }} />
+        <TouchableHighlight
+          onPress={this.nextImage.bind(this)}
+          style={styles.image}
+        >
+          <Image source={{uri: IMAGES[0].uri}} style={styles.image} >
+            <Text style={styles.imageLabel}>{IMAGES[0].label}</Text>
+          </Image>
+        </TouchableHighlight>
+        <View style={{ flex: 1 }} />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  ...
+});
+
+```
+
+## Adicionando lógica para mudar as imagens de acordo com o click
+
+```js
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
+
+
+const IMAGES = [
+  ...
+];
+
+export default class App extends Component {
+
+  state = { index: 0 }
+
+  nextImage(event){
+    newIndex = (this.state.index + 1) == IMAGES.length ? 0 : this.state.index + 1;
+    this.setState({ index: newIndex});
+    console.log("next image: " + newIndex);
+  }
+
+  render() {
+    const index = this.state.index;
+
+    return (
+      <View style={styles.container}>
+        <View style={{ flex: 1 }} />
+        <TouchableHighlight
+          onPress={this.nextImage.bind(this)}
+          style={styles.image}
+        >
+          <Image source={{uri: IMAGES[index].uri}} style={styles.image} >
+            <Text style={styles.imageLabel}>{IMAGES[index].label}</Text>
+          </Image>
+        </TouchableHighlight>
+        <View style={{ flex: 1 }} />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  ...
+});
+
+```
+
+https://school.shoutem.com/lectures/build-react-native-mobile-app-tutorial/
