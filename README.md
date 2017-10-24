@@ -119,7 +119,7 @@ não será renderizada.
 3. Neste exemplo, a image carregada está fixa a nivel de código "IMAGES[0]", a
 imagem do primeiro index do array de imagens (IMAGES) definido previamente.
 
-```js
+```jxs
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
