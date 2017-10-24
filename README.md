@@ -112,6 +112,13 @@ const styles = StyleSheet.create({
 
 ## Colocando a 1ª imagem:
 
+1. É necessário fazer o import do componente "Image" do react-native.
+2. Na utilização do componente Image, por se tratar de uma imagem que vem de uma
+url é necessário passar as configurações de width e height, caso contrário a imagem
+não será renderizada.
+3. Neste exemplo, a image carregada está fixa a nivel de código "IMAGES[0]", a
+imagem do primeiro index do array de imagens (IMAGES) definido previamente.
+
 ```js
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
