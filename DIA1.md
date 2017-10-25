@@ -4,6 +4,8 @@ Material de apoio para o curso inicial de React Native - LCA/UFRA
 
 # Por que React Native?
 
+React Native promete uma nova maneira de desenvolver App para Android e iOS, usando (majoritariamente) uma única base de código. A idéia básica é desenvolver em javascript e o React Native vai "compilar" para as aplicações iOS e Android Nativas.
+
 # Ambientes de desenvolvimento
 
 ## CLI
@@ -346,5 +348,6 @@ const styles = StyleSheet.create({
 });
 
 ```
-
+# Referências
+https://www.toptal.com/ios/cold-dive-into-react-native-a-beginners-tutorial
 https://school.shoutem.com/lectures/build-react-native-mobile-app-tutorial/
