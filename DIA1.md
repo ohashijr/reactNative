@@ -6,6 +6,25 @@ Material de apoio para o curso inicial de React Native - LCA/UFRA
 
 React Native promete uma nova maneira de desenvolver App para Android e iOS, usando (majoritariamente) uma única base de código. A idéia básica é desenvolver em javascript e o React Native vai "compilar" para as aplicações iOS e Android Nativas.
 
+Pros and Cons of React Native
+
+Cons
+
+It’s relatively new framework and changing very rapidly;
+Steeper learning curve if you came from front end web development comparing to other cross-platform solutions like Cordova, Ionic, etc..
+
+Pros
+
+Truly native. Although you write JavaScript with React Native, the components you define will end up rendering as native platform widgets;
+Ease of learning. It’s much easier to read comparing to native platform’s code;
+Vibrant ecosystem. There are hundreds of modules available;
+Cross-platform. Apps built with React Native work on both iOS and Android platforms;
+Great performance. Much better performance than other cross-platform solutions like Cordova, Ionic, etc.;
+Great development experience. There is no need to rebuild the whole app every time you make changes, you see the result right away;
+Tons of apps built, including Facebook, Instagram, Walmart, Tesla, Discord and more;
+Build and supported by Facebook.
+
+
 # Ambientes de desenvolvimento
 
 ## CLI
